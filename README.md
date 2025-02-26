@@ -1,40 +1,150 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Toast Solid
 
-## Getting Started
+A lightweight, customizable toast notification system for React applications.
 
-First, run the development server:
+## Features
+
+- 🚀 Lightweight and fast
+- 🎨 Fully customizable
+- 🔄 Multiple toast types (info, success, warning, error)
+- 📱 Responsive and mobile-friendly
+- ⏱️ Configurable durations
+- 🌈 Sleek animations
+- 📦 Easy to install and use
+- 🔧 TypeScript support
+
+## Installation
 
 ```bash
-npm run dev
+npm install @toastedui
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn add @toastedui
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### 1. Wrap your app with the ToastProvider
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```jsx
+import { ToastProvider } from '@toastedui';
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+function App() {
+  return (
+    <ToastProvider>
+      <YourApp />
+    </ToastProvider>
+  );
+}
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Add the ToastContainer to your layout
 
-## Learn More
+```jsx
+import { ToastContainer } from '@toastedui';
 
-To learn more about Next.js, take a look at the following resources:
+function Layout() {
+  return (
+    <div>
+      {/* Your app content */}
+      <ToastContainer position="top-right" limit={5} />
+    </div>
+  );
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### 3. Use the useToast hook to show toasts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```jsx
+import { useToast } from '@toastedui';
 
-## Deploy on Vercel
+function MyComponent() {
+  const toast = useToast();
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  const handleClick = () => {
+    toast.success('Operation completed successfully!', {
+      title: 'Success',
+      duration: 5000,
+    });
+  };
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+  return (
+    <button onClick={handleClick}>
+      Show Toast
+    </button>
+  );
+}
+```
+
+## API
+
+### ToastProvider
+
+The provider that makes the toast functionality available throughout your app.
+
+```jsx
+<ToastProvider>
+  {children}
+</ToastProvider>
+```
+
+### ToastContainer
+
+The container that renders the toasts.
+
+```jsx
+<ToastContainer
+  position="top-right" // 'top-right', 'top-left', 'bottom-right', 'bottom-left', 'top-center', 'bottom-center'
+  limit={5} // Maximum number of toasts to show at once
+  newestOnTop={true} // Whether to show newest toasts on top
+  className="" // Additional CSS classes
+  style={{}} // Additional inline styles
+/>
+```
+
+### useToast Hook
+
+```jsx
+const toast = useToast();
+
+// Show a toast with default options
+toast.show('Message');
+
+// Show a toast with type
+toast.info('Info message');
+toast.success('Success message');
+toast.warning('Warning message');
+toast.error('Error message');
+
+// With options
+toast.success('Message', {
+  title: 'Optional Title',
+  duration: 5000, // milliseconds
+  icon: <CustomIcon />, // Custom icon component
+  onClose: () => console.log('Toast closed'),
+});
+
+// Remove a specific toast
+const id = toast.success('Message');
+toast.remove(id);
+
+// Clear all toasts
+toast.clearAll();
+```
+
+## Customization
+
+### Custom Styles
+
+You can customize the appearance of toasts by providing additional CSS classes or inline styles.
+
+```jsx
+<ToastContainer className="my-custom-container" />
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+MIT
