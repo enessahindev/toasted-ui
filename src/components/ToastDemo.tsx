@@ -28,20 +28,20 @@ const ToastDemo = () => {
   };
 
   return (
-    <div className="p-4 sm:p-6 font-sans">
-      <div className="w-full max-w-4xl mx-auto">
-        <div className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 flex">
+    <div className="p-4 sm:p-6 font-sans text-white">
+      <div className="w-full max-w-4xl mx-auto text-white">
+        <div className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 flex text-white">
           <img src="/logo.png" alt="ToastedUI" width="64" height="64" />
           <h1 className="mt-4 ml-4">ToastedUI</h1>
         </div>
-        <p className="text-lg sm:text-xl mb-3 sm:mb-4">
+        <p className="text-lg sm:text-xl mb-3 sm:mb-4 text-white">
           ToastedUI provides a set of reusable components to help you build your
           notification faster. Here&apos;s an overview of some key components:
         </p>
-        <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">
+        <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4 text-white">
           Toasted
         </h2>
-        <div className="bg-black text-white p-6 rounded-lg w-full max-w-lg font-mono">
+        <div className="bg-black text-white p-6 rounded-lg w-full max-w-lg font-mono ">
           <div className="flex justify-between items-center">
             <div className="flex space-x-2 text-red-500">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -58,11 +58,11 @@ const ToastDemo = () => {
             </p>
           </div>
         </div>
-        <p className="mb-3 sm:mb-4">
+        <p className="mb-3 sm:mb-4 text-white">
           The Toasted component is a versatile and customizable Toast that can
           be used for various actions in your application.
         </p>
-        <p className="mb-3 sm:mb-4">
+        <p className="mb-3 sm:mb-4 text-white">
           🚀 Lightweight & Fast - Optimized for performance with minimal overhead. <br />
           🎨 Fully Customizable - Easily adjust the design and behavior to fit your needs. <br />
           🔄 Multiple Toast Types - Supports info, success, warning, and error messages. <br />
@@ -90,7 +90,7 @@ const ToastDemo = () => {
           </button>
         </pre>
 
-        <div className="flex flex-wrap gap-2 sm:gap-3">
+        <div className="flex flex-wrap gap-2 sm:gap-3 text-white">
           <button
             className="flex-1 min-w-[120px] px-3 py-2 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-600"
             onClick={() => toast.info("This is an information message")}
@@ -139,11 +139,11 @@ const ToastDemo = () => {
           >
              <p className="flex text-center items-center justify-center"><Eraser className="mr-3" />Clear All Toast</p>
           </button>
-          <div className="flex text-center items-center justify-center mt-4">
-            <p className="mr-3">
+          <div className="flex text-center items-center justify-center mt-4 text-white">
+            <p className="mr-3 text-white">
               &copy; 2025 Toasted UI | All rights reserved.
             </p>
-            <p>
+            <p className="text-white">
               Made with ❤️ by{" "}
               <a
                 href="https://enessahin.dev/"
