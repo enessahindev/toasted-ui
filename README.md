@@ -1,4 +1,4 @@
-# Toast Solid
+# ToastedUI
 
 A lightweight, customizable toast notification system for React applications.
 
