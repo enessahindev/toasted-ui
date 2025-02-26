@@ -28,30 +28,32 @@ const ToastPlayground = () => {
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-lg font-semibold mb-4">Toasted Playground</h2>
+    <div className="p-4 text-white">
+      <h2 className="text-lg font-semibold mb-4 text-white">
+        Toasted Playground
+      </h2>
 
-      <div className="flex flex-col gap-2">
-        <input
-          type="text"
-          placeholder="Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className="border p-2 rounded  bg-black/5"
-        />
+      <div className="flex flex-col gap-2 text-white">
         <input
           type="text"
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="border p-2 rounded  bg-black/5"
+          className="border p-2 rounded  bg-black/5 text-white"
+        />
+        <input
+          type="text"
+          placeholder="Message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className="border p-2 rounded  bg-black/5 text-white"
         />
         <input
           type="number"
           placeholder="Duration (ms)"
           value={duration}
           onChange={(e) => setDuration(Number(e.target.value))}
-          className="border p-2 rounded bg-black/5"
+          className="border p-2 rounded bg-black/5 text-white"
         />
         <select
           value={type}
@@ -109,7 +111,9 @@ const ToastPlayground = () => {
           onClick={showToast}
           className="p-2 rounded-full text-white bg-gradient-to-r from-black to-red-800 hover:from-red-700 hover:to-red-300 transition-all duration-300"
         >
-          <p className="flex text-center items-center justify-center"><MousePointer2Icon className="mr-3" /> Show Your Demo Toast</p>
+          <p className="flex text-center items-center justify-center">
+            <MousePointer2Icon className="mr-3" /> Show Your Demo Toast
+          </p>
         </button>
       </div>
       <ToastContainer position={position} limit={5} newestOnTop />
